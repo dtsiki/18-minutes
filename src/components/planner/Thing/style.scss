@@ -1,0 +1,142 @@
+@import '../../../styles/colors';
+@import '../../../styles/vars';
+
+.thing {
+  position: relative;
+  padding: $spacer;
+  border-radius: 5px;
+  aspect-ratio: 1 / 1;
+  margin-bottom: $grid-spacer * 2;
+  overflow: hidden;
+  transition: 0.5s all;
+
+  &--initial {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .thing__button {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      border: 0;
+      background: transparent;
+      cursor: pointer;
+      font-size: 1.5rem;
+      color: $color--violet;
+
+      svg {
+        margin-top: $grid-spacer / 2;
+      }
+    }
+  }
+
+  &--default {
+    background: $color--violet;
+    color: $color--white;
+  }
+
+  &--violet {
+    background: $color--violet;
+    color: $color--white;
+  }
+
+  &--dark-violet {
+    background: $color--violet-dark;
+    color: $color--white;
+  }
+
+  &--white {
+    background: $color--white-pink;
+    color: $color--violet;
+  }
+
+  &--lavander {
+    background: $color--white-violet;
+    color: $color--violet;
+  }
+
+  &--black {
+    background: $color--black;
+    color: $color--white;
+  }
+
+  &--grey {
+    background: $color--grey-lighter;
+    color: $color--black;
+  }
+
+  &--custom {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+
+    .thing__button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 0;
+      background: transparent;
+      cursor: pointer;
+      font-size: 1rem;
+      color: inherit;
+
+      svg {
+        margin-right: $spacer / 4;
+      }
+    }
+  }
+
+  &__heading {
+    display: flex;
+    align-items: center;
+    margin-bottom: $spacer / 2;
+  }
+
+  &__title {
+    font-size: 1.2rem;
+    font-weight: 700;
+  }
+
+  &__icon {
+    position: absolute;
+    bottom: -10%;
+    right: -10%;
+    margin-right: $spacer / 2;
+    width: 200px;
+    height: 200px;
+    opacity: 0.1;
+    background: transparent;
+
+    svg {
+      width: 100% !important;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__task {
+    + .thing__task {
+      margin-top: $spacer / 4;
+    }
+  }
+
+  &__note {
+    font-style: italic;
+  }
+
+  &__toggle {
+    border: 0;
+    margin: $spacer 0 0;
+    padding: 0;
+    background: transparent;
+    color: inherit;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+}

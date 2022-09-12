@@ -1,11 +1,14 @@
 import React from 'react';
 
 import Dashboard from './components/layout/Dashboard';
+import Things from './components/planner/Things';
 
 const App: React.FC = () => {
   return (
     <Dashboard>
-      <h1>18 minutes</h1>
+      <div className='container'>
+        <Things />
+      </div>
     </Dashboard>
   );
 };

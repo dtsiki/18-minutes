@@ -1,0 +1,16 @@
+@import './../../../styles/colors';
+@import './../../../styles/vars';
+@import './../../../styles/breakpoints';
+
+.hero {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 500px;
+  padding: ($spacer * 2) 0;
+
+  @include md {
+    min-height: 100vh;
+  }
+}
