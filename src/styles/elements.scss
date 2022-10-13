@@ -5,6 +5,7 @@ html {
 }
 
 body {
+  position: relative;
   color: $color--black;
   font-family: $font--base;
   font-size: 1rem;
@@ -77,6 +78,13 @@ a {
   padding: 0;
   margin: 0;
   cursor: pointer;
+  padding: $spacer / 2;
+  min-width: 150px;
+  border-radius: 5px;
+
+  + .button {
+    margin-left: $spacer / 4;
+  }
 
   &--link {
     display: inline-flex;
@@ -95,18 +103,22 @@ a {
 
   &--primary {
     background: $color--violet;
+    color: $color--white
   }
 
   &--dark {
     background: $color--violet-darker;
+    color: $color--white;
   }
 
   &--pink {
     background: $color--white-pink;
+    color: $color--violet
   }
 
   &--light {
-    background: $color--white;
+    background: rgba($color--grey, 0.3);
+    color: $color--violet;
   }
 
   &--with-icon {
