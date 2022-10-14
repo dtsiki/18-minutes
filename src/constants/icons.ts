@@ -1,12 +1,23 @@
 import {
+  faBabyCarriage,
+  faBook,
   faBriefcase,
+  faCar,
+  faCode,
+  faCoins,
   faDog,
   faDumbbell,
+  faFrog,
+  faGift,
   faGlobeAmericas,
   faHeart,
   faHeartbeat,
   faHome,
+  faMedal,
   faPalette,
+  faPeace,
+  faPizzaSlice,
+  faPlane,
   faUserGraduate
 } from '@fortawesome/free-solid-svg-icons';
 
@@ -19,5 +30,16 @@ export const icons = {
   heart: faHeart,
   travel: faGlobeAmericas,
   art: faPalette,
-  dog: faDog
+  dog: faDog,
+  money: faCoins,
+  car: faCar,
+  gift: faGift,
+  book: faBook,
+  plane: faPlane,
+  code: faCode,
+  medal: faMedal,
+  pizza: faPizzaSlice,
+  peace: faPeace,
+  frog: faFrog,
+  baby: faBabyCarriage
 };
