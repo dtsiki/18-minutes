@@ -3,7 +3,7 @@
 @import './../../../styles/breakpoints';
 
 .portal {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   right: 0;
@@ -15,4 +15,5 @@
   justify-content: center;
   background: rgba($color--white-violet, 0.90);
   backdrop-filter: blur(1px);
+  overflow-y: scroll;
 }

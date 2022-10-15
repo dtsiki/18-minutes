@@ -1,0 +1,70 @@
+@import './../../../styles/colors';
+@import './../../../styles/vars';
+@import './../../../styles/breakpoints';
+@import './../../../styles/keyframes';
+
+.window {
+  position: relative;
+  top: $spacer * 2;
+  max-width: 500px;
+  background: $color--white;
+  border-radius: 5px;
+  padding: $spacer;
+  margin: 120px 0;
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: $color--violet;
+  }
+
+  &__control {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    width: 20px;
+    height: 20px;
+    background: transparent;
+    border: 2px solid $color--white;
+    color: $color--white;
+    cursor: pointer;
+
+    svg {
+      width: 10px !important;
+      height: 10px;
+    }
+
+    + .window__control {
+      margin-left: $spacer / 4;
+    }
+  }
+
+  &__body {
+    margin-top: $spacer;
+  }
+
+  &__close-button {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    border: 0;
+    color: $color--violet;
+    cursor: pointer;
+    background: transparent;
+  }
+}
