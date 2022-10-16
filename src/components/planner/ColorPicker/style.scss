@@ -1,0 +1,71 @@
+@import '../../../styles/colors';
+@import '../../../styles/vars';
+
+.color-picker {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: $spacer -5px;
+
+  &__item {
+    flex: 1;
+    margin: 5px;
+  }
+
+  &__button {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding-top: 100%;
+    background: transparent;
+    border: 1px solid $color--grey;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.5s all;
+    box-sizing: border-box;
+
+    &:hover {
+      background: rgba($color--white-violet, 0.4);
+    }
+
+    &.selected {
+      border-color: $color--violet;
+    }
+  }
+
+  &__color {
+    position: absolute;
+    top: 10%;
+    width: 80%;
+    height: 80%;
+    border-radius: 5px;
+    box-sizing: border-box;
+
+    &.violet {
+      background-color: $color--violet;
+    }
+
+    &.dark-violet {
+      background-color: $color--violet-dark;
+
+    }
+
+    &.lavander {
+      background-color: $color--white-violet;
+    }
+
+    &.white {
+      background-color: $color--white;
+    }
+
+    &.black {
+      background-color: $color--black;
+    }
+
+    &.grey {
+      background-color: $color--grey
+    }
+  }
+}
