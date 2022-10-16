@@ -1,0 +1,44 @@
+@import '../../../styles/colors';
+@import '../../../styles/vars';
+
+.icon-picker {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: $spacer -5px;
+
+  &__item {
+    flex: 1;
+    margin: 5px;
+  }
+
+  &__button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: $spacer;
+    background: transparent;
+    border: 1px solid $color--grey;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.5s all;
+
+    svg {
+      color: $color--black;
+      transform: scale(2);
+    }
+
+    &:hover {
+      background: rgba($color--white-violet, 0.4);
+    }
+
+    &.selected {
+      border-color: $color--violet;
+
+      svg {
+        color: $color--violet;
+      }
+    }
+  }
+}
