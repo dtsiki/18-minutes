@@ -6,7 +6,7 @@
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  margin: $spacer -5px;
+  margin: ($spacer / 2) -5px;
 
   &__item {
     flex: 1;
