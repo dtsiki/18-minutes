@@ -31,16 +31,20 @@ const Form: React.FC<Props> = ({ thing, handleClose, handleSave }) => {
   }
 
   const changeIcon = (icon: IconDefinition): void => {
+    const isSameIcon = icon.iconName === localThing.icon?.iconName;
+
     setLocalThing((prevLocalThing) => ({
       ...prevLocalThing,
-      icon: icon
+      icon: isSameIcon ? undefined : icon
     }));
   }
 
   const changeColor = (color: ThingColor): void => {
+    const isSameColor = color === localThing.color;
+
     setLocalThing((prevLocalThing) => ({
       ...prevLocalThing,
-      color: color
+      color: isSameColor ? undefined : color
     }));
   }
 
@@ -55,9 +59,10 @@ const Form: React.FC<Props> = ({ thing, handleClose, handleSave }) => {
       <div className='field'>
         <Input
           placeholder='Enter thing title'
-          label='Title'
+          label='Title (required)'
           value={localThing.title}
-          onChange={changeTitle} />
+          onChange={changeTitle}
+          labelClassName='heading-l4' />
       </div>
       <div className='field'>
         <div className='heading-l4'>Icon</div>
