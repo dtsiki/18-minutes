@@ -1,0 +1,50 @@
+@import '../../../styles/colors';
+@import '../../../styles/vars';
+
+.tasks {
+  &__item {
+    padding: $spacer / 2;
+    border-radius: 5px;
+    border: 1px solid;
+
+    + .tasks__item {
+        margin-top: $spacer / 2;
+    }
+  }
+
+  &.violet {
+    .tasks__item {
+      border-color: $color--violet;
+    }
+  }
+
+  &.dark-violet {
+    .tasks__item {
+      border-color: $color--violet-dark;
+    }
+  }
+
+  &.lavander {
+    .tasks__item {
+      border-color: $color--white-violet;
+    }
+  }
+
+  &.white {
+    .tasks__item {
+      border-color: $color--grey-lighter;
+    }
+  }
+
+  &.black {
+    .tasks__item {
+      border-color: $color--black;
+    }
+  }
+
+  &.grey {
+    .tasks__item {
+      border-color: $color--grey;
+    }
+  }
+}
