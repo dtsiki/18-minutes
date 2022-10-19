@@ -1,0 +1,18 @@
+@import './../../../styles/colors';
+@import './../../../styles/vars';
+@import './../../../styles/breakpoints';
+
+.select {
+  &__control {
+    display: block;
+    width: 100%;
+    padding: 10px 15px 10px 0;
+    border: 0;
+    border-bottom: 1px solid $color--black;
+    background: transparent;
+
+    &:focus {
+      border-bottom-color: $color--violet;
+    }
+  }
+}
