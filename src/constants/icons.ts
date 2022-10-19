@@ -5,9 +5,9 @@ import {
   faCar,
   faCode,
   faCoins,
+  faComments,
   faDog,
   faDumbbell,
-  faFrog,
   faGift,
   faGlobeAmericas,
   faHeart,
@@ -18,18 +18,22 @@ import {
   faPeace,
   faPizzaSlice,
   faPlane,
-  faUserGraduate
+  faPoop,
+  faSocks,
+  faUmbrellaBeach,
+  faUserGraduate,
+  faUserSecret
 } from '@fortawesome/free-solid-svg-icons';
 
 export const icons = {
   work: faBriefcase,
   family: faHome,
-  health: faHeartbeat,
-  sport: faDumbbell,
+  heartbeat: faHeartbeat,
+  dumbbell: faDumbbell,
   education: faUserGraduate,
   heart: faHeart,
-  travel: faGlobeAmericas,
-  art: faPalette,
+  globe: faGlobeAmericas,
+  pallete: faPalette,
   dog: faDog,
   money: faCoins,
   car: faCar,
@@ -40,6 +44,10 @@ export const icons = {
   medal: faMedal,
   pizza: faPizzaSlice,
   peace: faPeace,
-  frog: faFrog,
-  baby: faBabyCarriage
+  baby: faBabyCarriage,
+  poop: faPoop,
+  umbrella: faUmbrellaBeach,
+  socks: faSocks,
+  spy: faUserSecret,
+  messages: faComments
 };
