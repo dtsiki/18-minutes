@@ -1,15 +1,14 @@
-@import './../../../styles/base/colors';
-@import './../../../styles/utils/mixins';
-@import './../../../styles/utils/breakpoints';
-@import './../../../styles/base/variables';
+@import './../../../styles/colors';
+@import './../../../styles/breakpoints';
+@import './../../../styles/vars';
 
 .input {
   position: relative;
   width: 100%;
+  margin: ($spacer / 2) 0;
 
   &__field {
-    margin: 0 0 10px;
-    padding: 10px 15px 10px 0;
+    padding: 10px 15px 10px 5px;
     width: 100%;
     font-weight: normal;
     color: $color--black;
@@ -43,13 +42,9 @@
   }
 
   &__label {
-    margin: 5px 0 10px;
     display: inline-block;
-    color: $color--black-ligher;
-
-    &--hidden {
-      @include visually-hidden;
-    }
+    font-weight: 500;
+    color: $color--black;
   }
 
   &__icon {
@@ -59,10 +54,6 @@
     left: 20px;
     width: 30px;
     height: 30px;
-
-    svg {
-      @include set-svg(30px, $color--violet);
-    }
   }
 
   &--has-icon {
