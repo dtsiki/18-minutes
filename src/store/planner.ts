@@ -1,74 +1,6 @@
 import { StoreonModule } from 'storeon';
-import { nanoid } from 'nanoid'
 
 import { IThing, ITask } from '../interfaces';
-import { icons }  from './../constants';
-import { ThingColor } from '../components/planner/Thing/Thing';
-
-const initialThings: Array<IThing> = [
-  {
-    id: '1',
-    title: 'Work',
-    icon: icons.work,
-    color: ThingColor.DARK_VIOLET
-  },
-  {
-    id: nanoid(),
-    title: 'Family',
-    icon: icons.family,
-    color: ThingColor.BLACK
-  },
-  {
-    id: nanoid(),
-    title: 'Self development',
-    icon: icons.education,
-    color: ThingColor.WHITE
-  },
-  {
-    id: nanoid(),
-    title: 'Health',
-    icon: icons.heart,
-    color: ThingColor.LAVANDER
-  },
-  {
-    id: nanoid(),
-    title: 'Doggy',
-    icon: icons.dog
-  }
-];
-
-const initialTasks: Array<ITask> = [
-  {
-    id: nanoid(),
-    thingID: '1',
-    title: 'Write a post about semantic HTML',
-    isCompleted: true
-  },
-  {
-    id: nanoid(),
-    thingID: '1',
-    title: 'Refactor code',
-    isCompleted: false
-  },
-  {
-    id: nanoid(),
-    thingID: '1',
-    title: 'Commit something',
-    isCompleted: false
-  },
-  {
-    id: nanoid(),
-    thingID: '1',
-    title: 'Read JavaScript book',
-    isCompleted: false
-  },
-  {
-    id: nanoid(),
-    thingID: '1',
-    title: 'Learn TypeScript',
-    isCompleted: false
-  }
-];
 
 export interface State {
   things: Array<IThing>,
@@ -76,16 +8,51 @@ export interface State {
 }
 
 export interface Events {
-  'addThing': IThing
+  'addThing': IThing,
+  'deleteThing': string,
+  'updateThing': IThing,
+  'addTask': ITask,
+  'deleteTask': ITask,
+  'updateTask': ITask
 }
 
-export enum ManagerEvent {
-  ADD_THING = 'addThing'
+export enum PlannerEvent {
+  ADD_THING = 'addThing',
+  DELETE_THING = 'deleteThing',
+  UPDATE_THING = 'updateThing',
+  ADD_TASK = 'addTask',
+  DELETE_TASK = 'deleteTask',
+  UPDATE_TASK = 'updateTask'
 }
 
 export const planner: StoreonModule<State, Events> = (store) => {
   store.on('@init', () => ({
-    things: initialThings,
-    tasks: initialTasks
+    things: [],
+    tasks: []
+  }));
+
+  store.on(PlannerEvent.ADD_THING, (state, event) => ({
+    things: [...state.things, event]
+  }));
+
+  store.on(PlannerEvent.DELETE_THING, (state, event) => ({
+    things: state.things.filter((thing) => thing.id !== event),
+    tasks: state.tasks.filter((task) => task.thingID !== event)
+  }));
+
+  store.on(PlannerEvent.UPDATE_THING, (state, event) => ({
+    things: state.things.map((thing) => thing.id === event.id ? event : thing)
+  }));
+
+  store.on(PlannerEvent.ADD_TASK, (state, event) => ({
+    tasks: [...state.tasks, event]
+  }));
+
+  store.on(PlannerEvent.DELETE_TASK, (state, event) => ({
+    tasks: state.tasks.filter((task) => task.id !== event.id)
+  }));
+
+  store.on(PlannerEvent.UPDATE_TASK, (state, event) => ({
+    tasks: state.tasks.map((task) => task.id === event.id ? event : task)
   }));
 };
