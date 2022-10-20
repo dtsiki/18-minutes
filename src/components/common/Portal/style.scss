@@ -1,6 +1,7 @@
 @import './../../../styles/colors';
 @import './../../../styles/vars';
 @import './../../../styles/breakpoints';
+@import './../../../styles/keyframes';
 
 .portal {
   position: absolute;
@@ -13,7 +14,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba($color--white-violet, 0.90);
+  background: rgba($color--white-pink, 0.90);
   backdrop-filter: blur(1px);
   overflow-y: scroll;
 }
