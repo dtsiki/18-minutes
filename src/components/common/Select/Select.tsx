@@ -8,13 +8,16 @@ interface Props {
   placeholder: string;
   options: Array<any>;
   selectedOption?: any;
+  handleSelect: (option: any) => void;
 }
 
-const Select: React.FC<Props> = ({ label, name, placeholder, options, selectedOption }: Props) => {
+const Select: React.FC<Props> = ({ label, name, placeholder, options, selectedOption, handleSelect }: Props) => {
   const [localValue, setLocalValue] = useState<any>(selectedOption.id || null);
 
   const changeValue = (e: React.ChangeEvent<HTMLSelectElement>): void => {
-    setLocalValue(e.target.value)
+    setLocalValue(e.target.value);
+
+    handleSelect(e.target.value)
   }
 
   const renderOptions = useMemo(() => {

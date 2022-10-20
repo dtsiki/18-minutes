@@ -38,6 +38,13 @@ const TaskForm: React.FC<Props> = ({ task, thing, handleClose, handleSave }) => 
     }
   }
 
+  const changeThing = (value: string): void => {
+    setLocalTask((prevLocalTask) => ({
+      ...prevLocalTask,
+      thingID: value
+    }));
+  }
+
   return (
     <div className='thing-form'>
       <div className='field'>
@@ -54,7 +61,8 @@ const TaskForm: React.FC<Props> = ({ task, thing, handleClose, handleSave }) => 
           name='taskThing'
           label='Thing'
           options={things}
-          selectedOption={thing} />
+          selectedOption={thing}
+          handleSelect={changeThing} />
       </div>
       <div className='thing__controls'>
         <button
