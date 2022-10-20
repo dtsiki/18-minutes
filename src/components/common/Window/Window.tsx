@@ -1,6 +1,9 @@
-import React, { ReactNode } from 'react';
+import React, { ReactNode, useRef } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTimes } from '@fortawesome/free-solid-svg-icons';
+import { faTimes, IconDefinition } from '@fortawesome/free-solid-svg-icons';
+
+import useOnClickOutside from '../../../hooks/useOnClickOutside';
+import { ThingColor } from '../../planner/Thing/Thing';
 
 import './style.scss';
 
@@ -8,11 +11,26 @@ interface Props {
   children?: ReactNode;
   title?: string;
   closeWindow?: () => void;
+  show?: boolean;
+  variant?: ThingColor;
+  icon?: IconDefinition;
 }
 
-const Window: React.FC<Props> = ({ children, title = '', closeWindow }: Props) => {
+const Window: React.FC<Props> = ({ children, title = '', closeWindow, show, variant, icon }: Props) => {
+  const ref = useRef<HTMLDivElement>(null);
+
+  const onClickedOutside = (): void => {
+    if (closeWindow) {
+      closeWindow();
+    }
+  }
+
+  useOnClickOutside(ref, () => onClickedOutside());
+
   return (
-    <div className='window'>
+    <div
+      ref={ref}
+      className={`window ${variant ? ` ${variant}` : ''}${show ? ' opened' : ' closed'}`}>
       {closeWindow && (
         <button
           onClick={closeWindow}
@@ -28,6 +46,11 @@ const Window: React.FC<Props> = ({ children, title = '', closeWindow }: Props) =
       <div className='window__body'>
         {children}
       </div>
+      {icon && (
+        <div className='window__overlay'>
+          <FontAwesomeIcon icon={icon} />
+        </div>
+      )}
     </div>
   );
 };

@@ -5,12 +5,12 @@
 
 .window {
   position: relative;
-  top: $spacer * 2;
-  max-width: 600px;
+  width: 600px;
   background: $color--white;
   border-radius: 5px;
   padding: $spacer;
-  margin: 120px 0;
+  overflow: hidden;
+  box-shadow: 0 0 100px 0 rgba($color--grey, 0.8);
 
   &__header {
     display: flex;
@@ -48,7 +48,9 @@
   }
 
   &__body {
+    position: relative;
     margin-top: $spacer;
+    z-index: 11;
   }
 
   &__close-button {
@@ -66,5 +68,78 @@
     color: $color--violet;
     cursor: pointer;
     background: transparent;
+  }
+
+  &__overlay {
+    position: absolute;
+    left: -30px;
+    bottom: -30px;
+    z-index: 10;
+
+    svg {
+      width: 200px !important;
+      height: 200px;
+      opacity: 0.1;
+    }
+  }
+
+  &.violet {
+    background-color: $color--violet;
+    color: $color--white;
+
+    .window__title,
+    .window__close-button {
+      color: $color--white
+    }
+  }
+
+  &.dark-violet {
+    background-color: $color--violet-dark;
+    color: $color--white;
+
+    .window__title,
+    .window__close-button {
+      color: $color--white;
+    }
+  }
+
+  &.lavander {
+    background-color: $color--white-violet;
+    color: $color--violet;
+
+    .window__title,
+    .window__close-button {
+      color: $color--violet;
+    }
+  }
+
+  &.white {
+    background-color: $color--white-darker;
+    color: $color--violet;
+
+    .window__title,
+    .window__close-button {
+      color: $color--violet;
+    }
+  }
+
+  &.black {
+    background-color: $color--black;
+    color: $color--white;
+
+    .window__title,
+    .window__close-button {
+      color: $color--white;
+    }
+  }
+
+  &.grey {
+    background-color: $color--grey;
+    color: $color--black;
+
+    .window__title,
+    .window__close-button {
+      color: $color--black;
+    }
   }
 }
