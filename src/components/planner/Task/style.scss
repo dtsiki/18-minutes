@@ -2,5 +2,24 @@
 @import '../../../styles/vars';
 
 .task {
-  
+  &.completed {
+    text-decoration: line-through;
+  }
+
+  &__action {
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+
+    + .task__action {
+      margin-left: 5px;
+    }
+  }
+
+  &__wrapper {
+    display: flex;
+    justify-content: space-between;
+    padding: $spacer 0;
+    border: 0;
+  }
 }
