@@ -6,6 +6,7 @@
 .window {
   position: relative;
   width: 600px;
+  margin-top: $spacer * 3;
   background: $color--white;
   border-radius: 5px;
   padding: $spacer;
