@@ -1,0 +1,103 @@
+@import './../../../styles/colors';
+@import './../../../styles/vars';
+@import './../../../styles/breakpoints';
+@import './../../../styles/keyframes';
+
+.progress-bar {
+  &.circular {
+    .CircularProgressbar-path {
+      stroke: $color--violet;
+    }
+
+    .CircularProgressbar-trail {
+      stroke: $color--white-darker;
+    }
+
+    .CircularProgressbar-text {
+      fill: $color--black;
+      font-weight: 700;
+    }
+  }
+
+  &.inline {
+    position: relative;
+    width: 100%;
+    height: 15px;
+    background: $color--grey;
+    border-radius: 5px;
+
+    &::before,
+    &::after {
+      position: absolute;
+      bottom: -25px;
+      font-weight: 600;
+      color: $color--grey;
+    }
+
+    &::before {
+      content: '0%';
+      left: 0;
+    }
+
+    &::after {
+      content: '100%';
+      right: 0;
+    }
+
+    &.completed {
+      &::after {
+        content: none;
+      }
+    }
+
+    .progress-bar__tracker {
+      display: flex;
+      justify-content: flex-end;
+      height: 15px;
+      background-color: $color--violet;
+      transition: 0.5s width;
+      border-radius: 5px;
+
+      &::after {
+        display: inline-block;
+        content: '';
+        border-radius: 50%;
+        background-color: $color--violet-dark;
+        width: 15px;
+        height: 15px;
+      }
+    }
+
+    .progress-bar__value {
+      margin-top: 5px;
+      margin-left: -15px;
+      font-weight: 600;
+    }
+
+    .progress-bar__status {
+      position: absolute;
+      top: -75px;
+      display: flex;
+      justify-content: center;
+      width: 150px;
+      text-align: center;
+      background: $color--violet;
+      color: $color--white;
+      padding: 10px;
+      font-weight: 500;
+      border-radius: 5px;
+      margin-left: -75px;
+
+      &::before {
+        position: absolute;
+        bottom: -10px;
+        width: 0;
+        height: 0;
+        content: '';
+        border-style: solid;
+        border-width: 10px 10px 0 10px;
+        border-color: $color--violet transparent transparent transparent;
+      }
+    }
+  }
+}
