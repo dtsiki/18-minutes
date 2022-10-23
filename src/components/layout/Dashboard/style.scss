@@ -3,4 +3,73 @@
 
 .dashboard {
   position: relative;
+  display: flex;
+  background: $color--violet;
+
+  .sidebar {
+    flex-basis: 90px;
+
+    &__menu {
+      position: fixed;
+      left: 15px;
+      margin-top: 50px;
+    }
+
+    &__item {
+      + .sidebar__item {
+        margin-top: $spacer / 2;
+      }
+    }
+
+    &__button {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      padding: $spacer / 2;
+      border: 0;
+      border-radius: 5px;
+      background-color: transparent;
+      color: rgba($color--white, 0.6);
+      cursor: pointer;
+
+      svg {
+        width: 30px;
+        height: 30px;
+        transition: 0.5s all;
+      }
+
+      &:hover {
+        svg {
+          transform: scale(1.2);
+        }
+      }
+
+      &.active {
+        svg {
+          color: $color--white;
+          transform: scale(1.2);
+        }
+
+        &:hover {
+          svg {
+            transform: scale(1);
+          }
+        }
+      }
+    }
+
+    &__label {
+      display: none;
+      margin-left: 10px;
+    }
+  }
+
+  .body {
+    flex: 1;
+    padding-left: $spacer;
+    border-radius: 15px 0 0 15px;
+    background-color: $color--white;
+  }
 }
