@@ -1,0 +1,26 @@
+@import '../../../styles/colors';
+@import '../../../styles/vars';
+
+.tasks-area {
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__item {
+    + .tasks-area__item {
+      margin-top: $spacer / 2;
+    }
+  }
+
+  &__tabs {
+    margin: ($spacer * 2) 0 ($spacer / 2);
+  }
+
+  &__message {
+    margin: ($spacer * 4) 0;
+    text-align: center;
+    color: $color--grey-dark;
+  }
+}
