@@ -6,6 +6,65 @@
     text-decoration: line-through;
   }
 
+  &.extended {
+    border-radius: 5px;
+    padding: 0 $spacer;
+  }
+
+  &.violet {
+    background: $color--violet;
+    color: $color--white;
+
+    svg {
+      color: $color--white;
+    }
+  }
+
+  &.dark-violet {
+    background: $color--violet-dark;
+    color: $color--white;
+
+    svg {
+      color: $color--white;
+    }
+  }
+
+  &.white {
+    background: $color--white-darker;
+    color: $color--violet;
+
+    svg {
+      color: $color--violet;
+    }
+  }
+
+  &.lavander {
+    background: $color--white-violet;
+    color: $color--violet;
+
+    svg {
+      color: $color--violet;
+    }
+  }
+
+  &.black {
+    background: $color--black;
+    color: $color--white;
+
+    svg {
+      color: $color--white;
+    }
+  }
+
+  &.grey {
+    background: $color--grey-lighter;
+    color: $color--black;
+
+    svg {
+      color: $color--black;
+    }
+  }
+
   &__action {
     background: transparent;
     border: 0;
@@ -21,5 +80,11 @@
     justify-content: space-between;
     padding: $spacer 0;
     border: 0;
+  }
+
+  &.skeleton {
+    height: 80px;
+    border: 1px dashed rgba($color--violet, 0.2);
+    border-radius: 5px;
   }
 }
