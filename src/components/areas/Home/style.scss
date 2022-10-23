@@ -1,0 +1,14 @@
+@import '../../../styles/colors';
+@import '../../../styles/vars';
+
+.home-area {
+  &__stats {
+    margin: 0 -5px;
+  }
+
+  &__message {
+    margin: ($spacer * 4) 0;
+    color: $color--grey;
+    text-align: center;
+  }
+}
