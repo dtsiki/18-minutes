@@ -2,7 +2,9 @@ import React, { useMemo } from 'react';
 import { useStoreon } from 'storeon/react';
 
 import { AreaVariant } from '../../../App';
+import { greetings } from '../../../constants/greetings';
 import { ITask, IThing } from '../../../interfaces';
+import { getRandomNumberFromInterval } from '../../../utils';
 import ProgressBar, { ProgressBarVariant } from '../../common/ProgressBar/ProgressBar';
 import Task from '../../planner/Task';
 import Thing from '../../planner/Thing';
@@ -152,13 +154,23 @@ const Home: React.FC<Props> = ({ handleArea }: Props) => {
         value={tasksCount ? tasksProgress : 0}
         variant={ProgressBarVariant.INLINE} />
     );
-  }, [tasks])
+  }, [tasks]);
+
+  const renderHeader = useMemo(() => {
+    const greetingIndex= getRandomNumberFromInterval(0, greetings.length);
+    const greeting = greetings[greetingIndex] || greetings[0];
+    const username = user.name.length > 0 ? `, ${user.name}` : '!';
+
+    return (
+      <h1 className='heading-l2 spacer bottom medium'>
+        {greeting}{username}
+      </h1>
+    );
+  }, [user]);
 
   return (
     <div className='home-area'>
-      <h1 className='heading-l2 spacer bottom medium'>
-        Hello{user.length ? `, ${user.name}` : '!'}
-      </h1>
+      {renderHeader}
       <h2 className='heading-l3 spacer bottom medium'>Latest things</h2>
       <ul className='row'>
         {renderLatestThings}

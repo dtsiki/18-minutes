@@ -1,10 +1,11 @@
 import { StoreonModule } from 'storeon';
 
-import { IThing, ITask } from '../interfaces';
+import { IThing, ITask, IUser } from '../interfaces';
 
 export interface State {
   things: Array<IThing>,
-  tasks: Array<ITask>
+  tasks: Array<ITask>,
+  user: IUser | undefined
 }
 
 export interface Events {
@@ -13,7 +14,8 @@ export interface Events {
   'updateThing': IThing,
   'addTask': ITask,
   'deleteTask': ITask,
-  'updateTask': ITask
+  'updateTask': ITask,
+  'updateUser': IUser
 }
 
 export enum PlannerEvent {
@@ -22,13 +24,15 @@ export enum PlannerEvent {
   UPDATE_THING = 'updateThing',
   ADD_TASK = 'addTask',
   DELETE_TASK = 'deleteTask',
-  UPDATE_TASK = 'updateTask'
+  UPDATE_TASK = 'updateTask',
+  UPDATE_USER = 'updateUser'
 }
 
 export const planner: StoreonModule<State, Events> = (store) => {
   store.on('@init', () => ({
     things: [],
-    tasks: []
+    tasks: [],
+    user: undefined
   }));
 
   store.on(PlannerEvent.ADD_THING, (state, event) => ({
@@ -54,5 +58,9 @@ export const planner: StoreonModule<State, Events> = (store) => {
 
   store.on(PlannerEvent.UPDATE_TASK, (state, event) => ({
     tasks: state.tasks.map((task) => task.id === event.id ? event : task)
+  }));
+
+  store.on(PlannerEvent.UPDATE_USER, (_, event) => ({
+    user: event
   }));
 };

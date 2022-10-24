@@ -1,0 +1,22 @@
+export const greetings = [
+  'Hello',
+  'Hi',
+  'Bonjour',
+  'Yay',
+  'Hey',
+  'Howdy',
+  'Wazzup',
+  'What\'s up',
+  'Welcome',
+  'Hiya',
+  'Hola',
+  'Good to see you',
+  'Great to see you',
+  'Nice to see you',
+  'What\'s new',
+  'Look who it is',
+  'Oh, it\'s you',
+  'Hi there',
+  'What\'s going on',
+  'Hey boo'
+];
