@@ -159,7 +159,7 @@ const Home: React.FC<Props> = ({ handleArea }: Props) => {
   const renderHeader = useMemo(() => {
     const greetingIndex= getRandomNumberFromInterval(0, greetings.length);
     const greeting = greetings[greetingIndex] || greetings[0];
-    const username = user.name.length > 0 ? `, ${user.name}` : '!';
+    const username = !!user && user.name.length > 0 ? `, ${user.name}` : '!';
 
     return (
       <h1 className='heading-l2 spacer bottom medium'>
