@@ -2,6 +2,9 @@
 ### Overview
 Task planner inspired by [18 Minutes](https://www.goodreads.com/en/book/show/12138871) book by Peter Bregman.
 
+![alt text](https://raw.githubusercontent.com/dtsiki/18-minutes/master/ui/home-screen.png "18 minutes planner main screen")
+![alt text](https://raw.githubusercontent.com/dtsiki/18-minutes/master/ui/things-screen.png "18 minutes planner things creen")
+
 ### Installation
 Clone this repository:
 
